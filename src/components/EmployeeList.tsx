@@ -1,13 +1,12 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import {IEmployeeList} from "../types/EmployeeListType"
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -20,44 +19,56 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
   // hide last border
-  '&:last-child td, &:last-child th': {
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
 
+export default function CustomizedTables() {
+  const [list, setList] = React.useState([
+    {
+      id: "1",
+      fristname: "vinod",
+      lastname: "rajput",
+      email: "vr02589@gmail.com",
+    },
+    {
+      id: "2",
+      fristname: "aditya",
+      lastname: "sharma",
+      email: "as  0022@gmail.com",
+    },
+  ]);
 
-
-
-type Props = {
-    rows:IEmployeeList[]
-}
-export default function CustomizedTables(probs:Props) {
-   const {rows} = probs
+  
+  
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell>id</StyledTableCell>
+            <StyledTableCell align="right">Frist Name</StyledTableCell>
+
+            <StyledTableCell align="right">Last Name&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">Email&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">Action&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.id}>
+          {list.map((i, index) => (
+            <StyledTableRow key={index}>
               <StyledTableCell component="th" scope="row">
-                {row.fristName}
+                {i.id}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.lastName}</StyledTableCell>
-              <StyledTableCell align="right">{row.email}</StyledTableCell>
-           
+              <StyledTableCell align="right">{i.fristname}</StyledTableCell>
+              <StyledTableCell align="right">{i.lastname}</StyledTableCell>
+              <StyledTableCell align="right">{i.email}</StyledTableCell>
+              <StyledTableCell align="right"> </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

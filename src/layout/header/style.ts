@@ -6,6 +6,5 @@ export const TestBox = styled(Box)({
 
   backgroundColor: "blue",
   padding: "15px 0 15px 0    ",
-  color:"white"
+  color: "white",
 });
-    

@@ -4,8 +4,8 @@ import { TestBox } from "./style";
 function Header() {
   return (
     <>
-      <TestBox>
-        <Typography variant="h3">React:simple CRUD app</Typography>
+      <TestBox >
+        <Typography  variant="h3">React:simple CRUD app</Typography>
       </TestBox>
       
     </>
