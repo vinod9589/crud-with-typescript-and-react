@@ -10,13 +10,9 @@ type buttonProps = {
 
 function Buttons({ style, onClick, variant1, text }: buttonProps) {
 
-function go(){
-    
-
-}
   return (
     <>
-      <Button onClick={go} variant={variant1} sx={{ ...style ,textTransform:"capitalize"}}>
+      <Button onClick={onClick} variant={variant1} sx={{ ...style ,textTransform:"capitalize"}}>
         {" "}
         {text}{" "}
       </Button>

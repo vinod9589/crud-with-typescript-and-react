@@ -4,8 +4,6 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { TextField, Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
-import { useContext } from "react";
-import { HomeContext } from "../context/Mycontext"; // Import your context
 
 const style = {
   position: "absolute",
@@ -20,19 +18,18 @@ const style = {
 };
 
 const AddEmployee: React.FC = () => {
-  // const [open, setOpen] = React.useState<boolean>(false);
+  const [open, setOpen] = React.useState<boolean>(false);
 
-  // const handleOpen = (): void => setOpen(true);
-  // const handleClose = (): void => setOpen(false);
-  //  const  {open,handleClose,handleOpen} = useContext(HomeContext)
+  const handleOpen = (): void => setOpen(true);
+  const handleClose = (): void => setOpen(false);
 
-  const { open, handleClose } = useContext(HomeContext);
+
 
   return (
     <div>
-      {/* <Button variant="contained" color="primary" onClick={handleOpen}>
+      <Button variant="contained" color="primary" onClick={handleOpen}>
         Open Modal
-      </Button> */}
+      </Button>
 
       <Modal
         open={open}
